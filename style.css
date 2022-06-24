@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
+
+.code {
+    color: blueviolet;
+}
+
+.image {
+    position: absolute;
+}
+
+.image img {
+    height: 100vh;
+    width: 100vw;
+}
+
+html {
+    width: 100vw;
+    padding: 0px;
+    margin: 0px;
+    top: 0px;
+    overflow-x:hidden;
+}
+
+body {
+    width: 100vw;
+    padding: 0px;
+    margin: 0px;
+}
+
+header {
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+    width: 100%;
+    min-width: 520px;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url(images/tg_logo_2.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+#header-h1 {
+    position: relative;
+    font-family: 'Comfortaa', cursive;
+    color: white;
+    font-size: 4rem;
+    padding-left: 6rem;
+    margin: 0;
+    padding-top: 30vw;
+}
+
+#header-p {
+    position: relative;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 300;
+    color: white;
+    font-size: 1rem;
+    padding-left: 6.5rem;
+    padding-top: 2vw;
+    margin: 0;
+}
+
+#chapter-1 h2 {
+    text-align: center;
+}
+
+#chapter-1 ol {
+    padding: 0 5vw;
+}
+
+p {
+    font-weight: 300;    
+}
+
+
+/* ==================================================================== */
+
+.content {
+    display: grid;
+    padding: 0px 15vw 0px 20vw;
+    row-gap: 7vh;
+
+    font-weight: 400;
+    font-family: 'Comfortaa', cursive;
+
+    top: 15vw;
+    width: 94vw;
+    overflow: auto;
+    
+    scrollbar-width: none;
+    margin-bottom: 5vh;
+    background-color: hsl(60, 100%, 98%);
+}
+
+.ch-2_h2 {
+    text-align: center;
+}
+
+
+.code_block {
+    display: grid;
+    background-color: hsl(200deg 27% 96%);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px;
+    padding: 1em;
+    overflow: auto;
+    white-space: pre;
+    height: auto;
+    position: relative;
+    max-width: 40vw;
+    min-width: 24.7em;
+    margin-bottom: 3.5vh;
+    border-left: 5px solid #b4cddd;
+}
+
+ol {
+    line-height: 1.5em;
+}
+
+.chapter-3 h2 {
+    text-align: center;
+}
+
+.img-1 {
+    width: 35vw;
+}
+
+.img-2 {
+    height: 46vh;
+}
+

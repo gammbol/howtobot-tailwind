@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <header>
+        
+        <h1 id="header-h1">Telegram-боты</h1>
+        <p id="header-p">Коротко и просто о том, как их создавать и использовать!</p>
+
+    </header>
+    
+    <div style="width: 65vw;" class="content">
+
+        <div id="chapter-1">
+            <h2>Подготовка</h2>
+    
+            <p>
+                Прежде всего нужно определиться где вы будете писать код. Доступны несколько вариантов:
+    
+                <ol>
+                    <li>Редактор кода (<a href="https://code.visualstudio.com/">VS Code</a>, 
+                        <a href="https://www.jetbrains.com/pycharm/">Pycharm</a>, 
+                        <a href="https://www.sublimetext.com/3">Sublime Text</a> и др.)</li>
+                    <li>Онлайн компилятор</li>
+                </ol>
+            </p>
+    
+            <p>
+                Советуем установить один из <span style="text-decoration: underline;">редакторов кода</span>, 
+                т.к. он имеет расширенный функционал, встроенные фреймворки и более надежен в использовании.
+            </p>
+    
+            <p>
+                После того, как вы определились с рабочей средой, необходимо <span style="text-decoration: underline;">получить токен</span> для своего бота. Для этого:
+            </p>    
+
+            <ol>
+                <li>Пишем <a href="https://t.me/botfather">@BotFather</a></li>
+                <li>Выбираем создание нового бота <span class="code">/newbot</span></li>
+                <li>Выбираем как наш бот будет называться</li>
+                <li>Придумываем имя пользователя для нашего бота, которое обязательно должно заканчиваться на _bot (@some_new_bot)</li>
+                <li>Далее снова пишем <a href="https://t.me/botfather">@BotFather</a>  команду <span class="code">/help</span> и выбираем <span class="code">/mybots</span></li>
+                <li>Из представленного списка выбираем только что созданного и нажимаем <span class="code">API Token</span></li>
+                <li>Тщательно запоминаем (шучу) полученный набор символов</li>
+            </ol>
+
+            <p>
+                Поздравляю! Мы создали нашего первого бота и получили его токен. Теперь пора приступать к написанию непосредственно кода на Python.
+            </p>
+        </div>
+    
+        <div class="chapter-2">
+            <h2 class="ch-2_h2">Код</h2>
+    
+            <p>
+                Для того, чтобы работать с ботом на Python, нужно импортировать библиотеку <b>pyTelegramBotAPI</b>. 
+                Для этого открываем командную строку и вписываем <span class="code">pip3 install pyTelegramBotAPI</span>.
+            </p>
+    
+            <p>Дальше создаем “скелет” нашей программы</p>
+
+            <div class="code_block">
+                <div>import telebot</div>
+                <div>TOKEN = '5436079033:AAFs3CEDSD4fE9x-xJAalNKSMhvTiemzcts'</div>
+                <div>bot = telebot.TeleBot(TOKEN)</div>
+                <div>bot.polling(none_stop=True)</div>
+            </div>
+            
+            <p>
+                Сначала импортируем библиотеку <span class="code">telebot</span>, которая предоставляет необходимые команды, и сохраняем ранее полученный токен в переменную <span class="code">TOKEN</span> для удобства.
+            </p>
+            <p>Создаем новый объект <span class="code">bot</span>, с которым мы и будем работать.</p>
+            <p><span class="code">bot.polling()</span> отвечает за то, чтобы бот работал непрерывно и без появления ошибок</p>
+        
+            <p>
+                <span class="danger">Важно!</span> весь код должен находиться до <span class="code">bot.polling()</span>
+            </p>
+            
+            <p>
+                Теперь поговорим об основных элементах бота — <span style="text-decoration: underline;">обработчиках сообщений</span>. это функция, которая будет выполняться при получении определённого сообщения. Для того, чтобы из обычной функции сделать обработчик сообщений для бота надо воспользоваться декоратором <span class="code">@bot.message_handler</span>.
+            </p>
+
+            <div class="code_block">
+                <div style="grid-column: 1 / 3;">importtelebot</div>
+                <div style="grid-column: 1 / 3;">TOKEN = "Токен полученный при регистрации"</div>
+                <div style="grid-column: 1 / 3;">bot = telebot.TeleBot(TOKEN)</div>
+                <div style="grid-column: 1 / 3;">@bot.message_handler(filters)</div>
+                <div style="grid-column: 1 / 3;">def function_name(message):</div>
+                <div style="grid-column: 2 / 3;">bot.reply_to(message, "This is a message handler")</div>
+                <div style="grid-column: 1 / 3;">bot.polling(none_stop=True)</div>
+            </div>
+
+            <p>Давайте разберемся, что мы с вами написали.</p>
+
+            <p>
+                <span class="code">filters</span> — фильтры, определяющие, следует ли вызывать декорированную функцию для соответствующего сообщения или нет. У одного обработчика может быть несколько фильтров.
+            </p>
+
+            <p>
+                Рассмотрим основные
+                <ul>
+                    <li>content_types</li>
+                    <li>commands</li>
+                </ul>
+            </p>
+            
+            <p>
+                Первый фильтр принимает список строк, чаще всего используется аргумент <span class="code">content_types=['text']</span>, который означает, что обработчик будет реагировать на все текстовые сообщения.
+            </p>
+            <p>
+                Второй вариант, <span class="code">commands</span>, реагирует только на указанные команды. Например обработчик <span class="code">@bot.message_handler(commands=['start', 'help'])</span> вызовется, только если пользователь отправит команду <span class="code">/start</span> или <span class="code">/help</span>.
+            </p>
+            <p>
+                Для обработчиков сообщений разрешено любое имя функции, поэтому <span class="code">function_name</span> может принимать любое значение. Функция должна принимать не более одного аргумента, который будет сообщением, которое функция должна обработать. Аргумент <span class="code">message</span> имеет все поля перечисленные здесь.
+            </p>
+            <p>
+                Вот и все! Это и есть весь секрет. Теперь вы научились создавать основную часть бота. Дальше остается лишь оттачивать свое мастерство и знание алгоритмов! Ну а если у кого-то еще остались вопросы, или кому-то нужно еще раз разобраться в материале, предлагаю еще раз пройтись по всем шагам и создать бота, зеркалющего наши сообщения.
+            </p>
+
+        </div>
+
+        <div class="chapter-3">
+
+            <h2>Практика</h2>
+            <p class="dhh">
+                Итак, как и в прошлый раз, мы начинаем с обращения к <a href="https://t.me/botfather">@BotFather</a> и получаем токен для бота.
+            </p>
+            <img clasxs="img-1" src="images/get_token.png" alt="Получение токена">
+            <p>Далее снова сохраняем токен и создаем скелет нашей программы</p>
+
+            <div class="code_block">
+                <div>mport telebot</div>
+                <div>TOKEN = '5436079033:AAFs3CEDSD4fE9x-xJAalNKSMhvTiemzcts'</div>
+                <div>bot = telebot.TeleBot(TOKEN)</div>
+                <div>bot.polling(none_stop=True)</div>
+            </div>
+
+            <p>
+                Поскольку нам нужно, чтобы бот зеркалил абсолютно все сообщения, то используем фильтр <span class="code">content_types=['text']</span>. 
+            </p>
+            <div class="code_block">
+                <div style="grid-column: 1 / 3;">@bot.message_handler(content_types=['text'])</div>
+                <div style="grid-column: 1 / 3;">def mirror_func(message):</div>
+                <div style="grid-column: 2 / 3;">...</div>   
+            </div>
+            
+            <p>
+                Теперь обращаемся к методу <span class="code">send_message()</span>, 1-м аргументом передаем чат, в который надо отправить сообщение, 2-м аргументом - то, что нужно отправить, в нашем случае текст самого сообщения.
+            </p>
+            <div class="code_block">
+                <div style="grid-column: 1 / 3;">@bot.message_handler(content_types=['text'])</div>
+                <div style="grid-column: 1 / 3;">def mirror_func(message):</div>
+                <div style="grid-column: 2 / 3;">bot.send_message(message.chat.id, message.text)</div>                     
+            </div>
+
+            <p>В итоге у нас получилась такая программа:</p>
+            <div class="code_block">
+                <div style="grid-column: 1 / 3;">import telebot</div>
+                <div style="grid-column: 1 / 3;">TOKEN = '5436079033:AAFs3CEDSD4fE9x-xJAalNKSMhvTiemzcts'</div>
+                <div style="grid-column: 1 / 3;">bot = telebot.TeleBot(TOKEN)</div>
+                <div style="grid-column: 1 / 3;">@bot.message_handler(content_types=['text'])</div>
+                <div style="grid-column: 1 / 3;">def mirror_func(message):</div>
+                <div style="grid-column: 2 / 3;">bot.send_message(message.chat.id, message.text)</div>
+                <div style="grid-column: 1 / 3;">bot.polling(none_stop=True)</div>
+            </div>
+
+            <p class="dhh">Теперь остается только запустить ее, и наш бот заработает!</p>
+            <img class="img-2" src="images/result.png" alt="Результат">
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
