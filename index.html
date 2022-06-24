@@ -2,180 +2,190 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Comfortaa', cursive;
+            font-weight: lighter;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    
-    <header>
-        
-        <h1 id="header-h1">Telegram-боты</h1>
-        <p id="header-p">Коротко и просто о том, как их создавать и использовать!</p>
+   <div class="container w-full h-full">
+       <header>
+           <div class="w-screen h-screen bg-black absolute opacity-70">
+               <h1 class="absolute bottom-1/3 px-10 text-6xl font-bold text-white pb-10"
+                   style="font-family: 'Comfortaa', cursive">
+                   Telegram-боты
+               </h1>
+               <p class="absolute bottom-1/3 text-white px-12">Коротко и просто о том, как их создавать и использовать!</p>
+           </div>
+           <div style="background-image: url('images/tg_logo_2.jpg')" class="w-screen h-screen static bg-no-repeat inset-0 bg-center"></div>
+       </header>
 
-    </header>
-    
-    <div style="width: 65vw;" class="content">
+       <main class="w-screen px-40 text-justify">
+           <section>
+               <h2 class="text-center py-5 text-3xl">Подготовка</h2>
 
-        <div id="chapter-1">
-            <h2>Подготовка</h2>
-    
-            <p>
-                Прежде всего нужно определиться где вы будете писать код. Доступны несколько вариантов:
-    
-                <ol>
-                    <li>Редактор кода (<a href="https://code.visualstudio.com/">VS Code</a>, 
-                        <a href="https://www.jetbrains.com/pycharm/">Pycharm</a>, 
-                        <a href="https://www.sublimetext.com/3">Sublime Text</a> и др.)</li>
-                    <li>Онлайн компилятор</li>
-                </ol>
-            </p>
-    
-            <p>
-                Советуем установить один из <span style="text-decoration: underline;">редакторов кода</span>, 
-                т.к. он имеет расширенный функционал, встроенные фреймворки и более надежен в использовании.
-            </p>
-    
-            <p>
-                После того, как вы определились с рабочей средой, необходимо <span style="text-decoration: underline;">получить токен</span> для своего бота. Для этого:
-            </p>    
+               <p class="py-2">
+                   Прежде всего нужно определиться где вы будете писать код. Доступны несколько вариантов:
 
-            <ol>
-                <li>Пишем <a href="https://t.me/botfather">@BotFather</a></li>
-                <li>Выбираем создание нового бота <span class="code">/newbot</span></li>
-                <li>Выбираем как наш бот будет называться</li>
-                <li>Придумываем имя пользователя для нашего бота, которое обязательно должно заканчиваться на _bot (@some_new_bot)</li>
-                <li>Далее снова пишем <a href="https://t.me/botfather">@BotFather</a>  команду <span class="code">/help</span> и выбираем <span class="code">/mybots</span></li>
-                <li>Из представленного списка выбираем только что созданного и нажимаем <span class="code">API Token</span></li>
-                <li>Тщательно запоминаем (шучу) полученный набор символов</li>
-            </ol>
+               <ol class="list-disc py-1 px-10 mb-3 font-normal">
+                   <li>Редактор кода (<a href="https://text-amber-600.visualstudio.com/">VS text-amber-600</a>,
+                       <a href="https://www.jetbrains.com/pycharm/">Pycharm</a>,
+                       <a href="https://www.sublimetext.com/3">Sublime Text</a> и др.)</li>
+                   <li>Онлайн компилятор</li>
+               </ol>
+               </p>
 
-            <p>
-                Поздравляю! Мы создали нашего первого бота и получили его токен. Теперь пора приступать к написанию непосредственно кода на Python.
-            </p>
-        </div>
-    
-        <div class="chapter-2">
-            <h2 class="ch-2_h2">Код</h2>
-    
-            <p>
-                Для того, чтобы работать с ботом на Python, нужно импортировать библиотеку <b>pyTelegramBotAPI</b>. 
-                Для этого открываем командную строку и вписываем <span class="code">pip3 install pyTelegramBotAPI</span>.
-            </p>
-    
-            <p>Дальше создаем “скелет” нашей программы</p>
+               <p class="py-3">
+                   Советуем установить один из <span style="text-decoration: underline;">редакторов кода</span>,
+                   т.к. он имеет расширенный функционал, встроенные фреймворки и более надежен в использовании.
+               </p>
 
-            <div class="code_block">
-                <div>import telebot</div>
-                <div>TOKEN = '5436079033:AAFs3CEDSD4fE9x-xJAalNKSMhvTiemzcts'</div>
-                <div>bot = telebot.TeleBot(TOKEN)</div>
-                <div>bot.polling(none_stop=True)</div>
-            </div>
-            
-            <p>
-                Сначала импортируем библиотеку <span class="code">telebot</span>, которая предоставляет необходимые команды, и сохраняем ранее полученный токен в переменную <span class="code">TOKEN</span> для удобства.
-            </p>
-            <p>Создаем новый объект <span class="code">bot</span>, с которым мы и будем работать.</p>
-            <p><span class="code">bot.polling()</span> отвечает за то, чтобы бот работал непрерывно и без появления ошибок</p>
-        
-            <p>
-                <span class="danger">Важно!</span> весь код должен находиться до <span class="code">bot.polling()</span>
-            </p>
-            
-            <p>
-                Теперь поговорим об основных элементах бота — <span style="text-decoration: underline;">обработчиках сообщений</span>. это функция, которая будет выполняться при получении определённого сообщения. Для того, чтобы из обычной функции сделать обработчик сообщений для бота надо воспользоваться декоратором <span class="code">@bot.message_handler</span>.
-            </p>
+               <p class="py-3">
+                   После того, как вы определились с рабочей средой, необходимо <span style="text-decoration: underline;">получить токен</span> для своего бота. Для этого:
+               </p>
 
-            <div class="code_block">
-                <div style="grid-column: 1 / 3;">importtelebot</div>
-                <div style="grid-column: 1 / 3;">TOKEN = "Токен полученный при регистрации"</div>
-                <div style="grid-column: 1 / 3;">bot = telebot.TeleBot(TOKEN)</div>
-                <div style="grid-column: 1 / 3;">@bot.message_handler(filters)</div>
-                <div style="grid-column: 1 / 3;">def function_name(message):</div>
-                <div style="grid-column: 2 / 3;">bot.reply_to(message, "This is a message handler")</div>
-                <div style="grid-column: 1 / 3;">bot.polling(none_stop=True)</div>
-            </div>
+               <ol class="list-disc py-1 px-10 mb-3 font-normal">
+                   <li>Пишем <a href="https://t.me/botfather">@BotFather</a></li>
+                   <li>Выбираем создание нового бота <span class="text-amber-600">/newbot</span></li>
+                   <li>Выбираем как наш бот будет называться</li>
+                   <li>Придумываем имя пользователя для нашего бота, которое обязательно должно заканчиваться на _bot (@some_new_bot)</li>
+                   <li>Далее снова пишем <a href="https://t.me/botfather">@BotFather</a>  команду <span class="text-amber-600">/help</span> и выбираем <span class="text-amber-600">/mybots</span></li>
+                   <li>Из представленного списка выбираем только что созданного и нажимаем <span class="text-amber-600">API Token</span></li>
+                   <li>Тщательно запоминаем (шучу) полученный набор символов</li>
+               </ol>
 
-            <p>Давайте разберемся, что мы с вами написали.</p>
+               <p class="py-3">
+                   Поздравляю! Мы создали нашего первого бота и получили его токен. Теперь пора приступать к написанию непосредственно кода на Python.
+               </p>
+           </section>
 
-            <p>
-                <span class="code">filters</span> — фильтры, определяющие, следует ли вызывать декорированную функцию для соответствующего сообщения или нет. У одного обработчика может быть несколько фильтров.
-            </p>
+           <section>
+               <h2 class="text-center py-5 text-3xl">Код</h2>
 
-            <p>
-                Рассмотрим основные
-                <ul>
-                    <li>content_types</li>
-                    <li>commands</li>
-                </ul>
-            </p>
-            
-            <p>
-                Первый фильтр принимает список строк, чаще всего используется аргумент <span class="code">content_types=['text']</span>, который означает, что обработчик будет реагировать на все текстовые сообщения.
-            </p>
-            <p>
-                Второй вариант, <span class="code">commands</span>, реагирует только на указанные команды. Например обработчик <span class="code">@bot.message_handler(commands=['start', 'help'])</span> вызовется, только если пользователь отправит команду <span class="code">/start</span> или <span class="code">/help</span>.
-            </p>
-            <p>
-                Для обработчиков сообщений разрешено любое имя функции, поэтому <span class="code">function_name</span> может принимать любое значение. Функция должна принимать не более одного аргумента, который будет сообщением, которое функция должна обработать. Аргумент <span class="code">message</span> имеет все поля перечисленные здесь.
-            </p>
-            <p>
-                Вот и все! Это и есть весь секрет. Теперь вы научились создавать основную часть бота. Дальше остается лишь оттачивать свое мастерство и знание алгоритмов! Ну а если у кого-то еще остались вопросы, или кому-то нужно еще раз разобраться в материале, предлагаю еще раз пройтись по всем шагам и создать бота, зеркалющего наши сообщения.
-            </p>
+               <p class="py-3">
+                   Для того, чтобы работать с ботом на Python, нужно импортировать библиотеку <b>pyTelegramBotAPI</b>.
+                   Для этого открываем командную строку и вписываем <span class="text-amber-600">pip3 install pyTelegramBotAPI</span>.
+               </p>
 
-        </div>
+               <p class="py-3">Дальше создаем “скелет” нашей программы</p>
 
-        <div class="chapter-3">
+               <div class="bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
+                   <div class="py-2">import telebot</div>
+                   <div class="py-2">TOKEN = '5436079033:AAFs3CEDSD4fE9x-xJAalNKSMhvTiemzcts'</div>
+                   <div class="py-2">bot = telebot.TeleBot(TOKEN)</div>
+                   <div class="py-2">bot.polling(none_stop=True)</div>
+               </div>
 
-            <h2>Практика</h2>
-            <p class="dhh">
-                Итак, как и в прошлый раз, мы начинаем с обращения к <a href="https://t.me/botfather">@BotFather</a> и получаем токен для бота.
-            </p>
-            <img clasxs="img-1" src="images/get_token.png" alt="Получение токена">
-            <p>Далее снова сохраняем токен и создаем скелет нашей программы</p>
+               <p class="py-3">
+                   Сначала импортируем библиотеку <span class="text-amber-600">telebot</span>, которая предоставляет необходимые команды, и сохраняем ранее полученный токен в переменную <span class="text-amber-600">TOKEN</span> для удобства.
+               </p>
+               <p class="py-3">Создаем новый объект <span class="text-amber-600">bot</span>, с которым мы и будем работать.</p>
+               <p class="py-3"><span class="text-amber-600">bot.polling()</span> отвечает за то, чтобы бот работал непрерывно и без появления ошибок</p>
 
-            <div class="code_block">
-                <div>mport telebot</div>
-                <div>TOKEN = '5436079033:AAFs3CEDSD4fE9x-xJAalNKSMhvTiemzcts'</div>
-                <div>bot = telebot.TeleBot(TOKEN)</div>
-                <div>bot.polling(none_stop=True)</div>
-            </div>
+               <p class="py-3">
+                   <span class="text-red-600">Важно!</span> весь код должен находиться до <span class="text-amber-600">bot.polling()</span>
+               </p>
 
-            <p>
-                Поскольку нам нужно, чтобы бот зеркалил абсолютно все сообщения, то используем фильтр <span class="code">content_types=['text']</span>. 
-            </p>
-            <div class="code_block">
-                <div style="grid-column: 1 / 3;">@bot.message_handler(content_types=['text'])</div>
-                <div style="grid-column: 1 / 3;">def mirror_func(message):</div>
-                <div style="grid-column: 2 / 3;">...</div>   
-            </div>
-            
-            <p>
-                Теперь обращаемся к методу <span class="code">send_message()</span>, 1-м аргументом передаем чат, в который надо отправить сообщение, 2-м аргументом - то, что нужно отправить, в нашем случае текст самого сообщения.
-            </p>
-            <div class="code_block">
-                <div style="grid-column: 1 / 3;">@bot.message_handler(content_types=['text'])</div>
-                <div style="grid-column: 1 / 3;">def mirror_func(message):</div>
-                <div style="grid-column: 2 / 3;">bot.send_message(message.chat.id, message.text)</div>                     
-            </div>
+               <p class="py-3">
+                   Теперь поговорим об основных элементах бота — <span style="text-decoration: underline;">обработчиках сообщений</span>. это функция, которая будет выполняться при получении определённого сообщения. Для того, чтобы из обычной функции сделать обработчик сообщений для бота надо воспользоваться декоратором <span class="text-amber-600">@bot.message_handler</span>.
+               </p>
 
-            <p>В итоге у нас получилась такая программа:</p>
-            <div class="code_block">
-                <div style="grid-column: 1 / 3;">import telebot</div>
-                <div style="grid-column: 1 / 3;">TOKEN = '5436079033:AAFs3CEDSD4fE9x-xJAalNKSMhvTiemzcts'</div>
-                <div style="grid-column: 1 / 3;">bot = telebot.TeleBot(TOKEN)</div>
-                <div style="grid-column: 1 / 3;">@bot.message_handler(content_types=['text'])</div>
-                <div style="grid-column: 1 / 3;">def mirror_func(message):</div>
-                <div style="grid-column: 2 / 3;">bot.send_message(message.chat.id, message.text)</div>
-                <div style="grid-column: 1 / 3;">bot.polling(none_stop=True)</div>
-            </div>
+               <div class="bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
+                   <div class="py-2">import telebot</div>
+                   <div class="py-2">TOKEN = "Токен полученный при регистрации"</div>
+                   <div class="py-2">bot = telebot.TeleBot(TOKEN)</div>
+                   <div class="py-2">@bot.message_handler(filters)</div>
+                   <div class="py-2">def function_name(message):</div>
+                   <div class="py-2 pl-5">bot.reply_to(message, "This is a message handler")</div>
+                   <div class="py-2 pl-5">bot.polling(none_stop=True)</div>
+               </div>
 
-            <p class="dhh">Теперь остается только запустить ее, и наш бот заработает!</p>
-            <img class="img-2" src="images/result.png" alt="Результат">
+               <p class="py-3">Давайте разберемся, что мы с вами написали.</p>
 
-        </div>
+               <p class="py-3">
+                   <span class="text-amber-600">filters</span> — фильтры, определяющие, следует ли вызывать декорированную функцию для соответствующего сообщения или нет. У одного обработчика может быть несколько фильтров.
+               </p>
 
-    </div>
+               <p class="py-3">
+                   Рассмотрим основные
+               <ul class="list-decimal py-1 px-10 mb-3 font-normal">
+                   <li>content_types</li>
+                   <li>commands</li>
+               </ul>
+               </p>
 
+               <p class="py-3">
+                   Первый фильтр принимает список строк, чаще всего используется аргумент <span class="text-amber-600">content_types=['text']</span>, который означает, что обработчик будет реагировать на все текстовые сообщения.
+               </p>
+               <p class="py-3">
+                   Второй вариант, <span class="text-amber-600">commands</span>, реагирует только на указанные команды. Например обработчик <span class="text-amber-600">@bot.message_handler(commands=['start', 'help'])</span> вызовется, только если пользователь отправит команду <span class="text-amber-600">/start</span> или <span class="text-amber-600">/help</span>.
+               </p>
+               <p class="py-3">
+                   Для обработчиков сообщений разрешено любое имя функции, поэтому <span class="text-amber-600">function_name</span> может принимать любое значение. Функция должна принимать не более одного аргумента, который будет сообщением, которое функция должна обработать. Аргумент <span class="text-amber-600">message</span> имеет все поля перечисленные здесь.
+               </p>
+               <p class="py-3">
+                   Вот и все! Это и есть весь секрет. Теперь вы научились создавать основную часть бота. Дальше остается лишь оттачивать свое мастерство и знание алгоритмов! Ну а если у кого-то еще остались вопросы, или кому-то нужно еще раз разобраться в материале, предлагаю еще раз пройтись по всем шагам и создать бота, зеркалющего наши сообщения.
+               </p>
+           </section>
 
+           <section>
+               <h2 class="text-center py-5 text-3xl">Практика</h2>
+               <p class="py-3">
+                   Итак, как и в прошлый раз, мы начинаем с обращения к <a href="https://t.me/botfather">@BotFather</a> и получаем токен для бота.
+               </p>
+               <img class="img-1" src="images/get_token.png" alt="Получение токена">
+               <p class="py-3">Далее снова сохраняем токен и создаем скелет нашей программы</p>
+
+               <div class="bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
+                   <div>import telebot</div>
+                   <div>TOKEN = '5436079033:AAFs3CEDSD4fE9x-xJAalNKSMhvTiemzcts'</div>
+                   <div>bot = telebot.TeleBot(TOKEN)</div>
+                   <div>bot.polling(none_stop=True)</div>
+               </div>
+
+               <p class="py-3">
+                   Поскольку нам нужно, чтобы бот зеркалил абсолютно все сообщения, то используем фильтр <span class="code">content_types=['text']</span>.
+               </p>
+               <div class="bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
+                   <div class="py-2">@bot.message_handler(content_types=['text'])</div>
+                   <div class="py-2">def mirror_func(message):</div>
+                   <div class="py-2">...</div>
+               </div>
+
+               <p class="py-3">
+                   Теперь обращаемся к методу <span class="code">send_message()</span>, 1-м аргументом передаем чат, в который надо отправить сообщение, 2-м аргументом - то, что нужно отправить, в нашем случае текст самого сообщения.
+               </p>
+               <div class="bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
+                   <div class="py-2">@bot.message_handler(content_types=['text'])</div>
+                   <div class="py-2">def mirror_func(message):</div>
+                   <div class="py-2 pl-5">bot.send_message(message.chat.id, message.text)</div>
+               </div>
+
+               <p class="py-3">В итоге у нас получилась такая программа:</p>
+               <div class="bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
+                   <div class="py-2">import telebot</div>
+                   <div class="py-2">TOKEN = '5436079033:AAFs3CEDSD4fE9x-xJAalNKSMhvTiemzcts'</div>
+                   <div class="py-2">bot = telebot.TeleBot(TOKEN)</div>
+                   <div class="py-2">@bot.message_handler(content_types=['text'])</div>
+                   <div class="py-2">def mirror_func(message):</div>
+                   <div class="py-2 pl-5">bot.send_message(message.chat.id, message.text)</div>
+                   <div class="py-2 pl-5">bot.polling(none_stop=True)</div>
+               </div>
+
+               <p  class="py-3">Теперь остается только запустить ее, и наш бот заработает!</p>
+               <img class="img-2" src="images/result.png" alt="Результат">
+           </section>
+       </main>
+   </div>
 </body>
 </html>
