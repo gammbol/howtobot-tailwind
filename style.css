@@ -10,40 +10,54 @@ h2 {
 }
 
 @media (max-width: 1200px) {
-    .container {
-        max-width: 1000px;
+    header h1 {
+        margin-bottom: 15%;
     }
     main {
         padding-left: 1px;
     }
-    .code {
-        font-size: 10px;
-    }
     body {
-        padding: 0px;
+        padding: 0;
+        font-size: 150% !important;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 550px) {
+    header p {
+        padding: 10px !important;
+    }
+    body {
+        word-wrap: break-word;
+    }
+}
+
+@media (max-width: 420px) {
     body {
         padding: 0 !important;
         margin: 0 !important;
         word-wrap: break-word;
     }
     header div h1 {
-        font-size: 300% !important;
-        padding-left: 10% !important;
-        padding-right: 0 !important;
+        font-size: 150% !important;
         text-align: center;
-        margin-bottom: 20px !important;
+        margin-bottom: 15%;
     }
     header p {
         padding: 0 !important;
         text-align: center;
-        bottom: 15rem !important;
+        bottom: 20% !important;
+        font-size: 1rem !important;
     }
     p {
-        font-size: 150% !important;
+        font-size: 100% !important;
+
+    }
+    ol, ul {
+        font-size: 80% !important;
+    }
+    .code {
+        text-align: left !important;
+        width: 100% !important;
 
     }
 }
