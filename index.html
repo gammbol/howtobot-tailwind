@@ -4,22 +4,12 @@
     <meta charset="UTF-8">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
-
-        body {
-            font-family: 'Comfortaa', cursive;
-            font-weight: lighter;
-        }
-
-        h2 {
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width">
 </head>
 <body>
-   <div class="container w-full h-full">
-       <header>
+   <div class="container text-justify">
+       <header class="w-screen h-screen">
            <div class="w-screen h-screen bg-black absolute opacity-70">
                <h1 class="absolute bottom-1/3 px-10 text-6xl font-bold text-white pb-10"
                    style="font-family: 'Comfortaa', cursive">
@@ -30,7 +20,7 @@
            <div style="background-image: url('images/tg_logo_2.jpg')" class="bg-cover w-screen h-screen static bg-no-repeat inset-0 bg-center"></div>
        </header>
 
-       <main class="w-screen px-40 text-justify">
+       <main class="w-screen px-5 py-1">
            <section>
                <h2 class="text-center py-5 text-3xl">Подготовка</h2>
 
@@ -38,7 +28,7 @@
                    Прежде всего нужно определиться где вы будете писать код. Доступны несколько вариантов:
 
                <ol class="list-disc py-1 px-10 mb-3 font-normal">
-                   <li>Редактор кода (<a href="https://text-amber-600.visualstudio.com/">VS text-amber-600</a>,
+                   <li>Редактор кода (<a href="https://text-amber-600.visualstudio.com/">VS Code</a>,
                        <a href="https://www.jetbrains.com/pycharm/">Pycharm</a>,
                        <a href="https://www.sublimetext.com/3">Sublime Text</a> и др.)</li>
                    <li>Онлайн компилятор</li>
@@ -79,7 +69,7 @@
 
                <p class="py-3">Дальше создаем “скелет” нашей программы</p>
 
-               <div class="bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
+               <div class="code bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
                    <div class="py-2">import telebot</div>
                    <div class="py-2">TOKEN = '5436079033:AAFs3CEDSD4fE9x-xJAalNKSMhvTiemzcts'</div>
                    <div class="py-2">bot = telebot.TeleBot(TOKEN)</div>
@@ -100,7 +90,7 @@
                    Теперь поговорим об основных элементах бота — <span style="text-decoration: underline;">обработчиках сообщений</span>. это функция, которая будет выполняться при получении определённого сообщения. Для того, чтобы из обычной функции сделать обработчик сообщений для бота надо воспользоваться декоратором <span class="text-amber-600">@bot.message_handler</span>.
                </p>
 
-               <div class="bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
+               <div class="code bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
                    <div class="py-2">import telebot</div>
                    <div class="py-2">TOKEN = "Токен полученный при регистрации"</div>
                    <div class="py-2">bot = telebot.TeleBot(TOKEN)</div>
@@ -146,7 +136,7 @@
                <img class="img-1" src="images/get_token.png" alt="Получение токена">
                <p class="py-3">Далее снова сохраняем токен и создаем скелет нашей программы</p>
 
-               <div class="bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
+               <div class="code bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
                    <div>import telebot</div>
                    <div>TOKEN = '5436079033:AAFs3CEDSD4fE9x-xJAalNKSMhvTiemzcts'</div>
                    <div>bot = telebot.TeleBot(TOKEN)</div>
@@ -154,25 +144,25 @@
                </div>
 
                <p class="py-3">
-                   Поскольку нам нужно, чтобы бот зеркалил абсолютно все сообщения, то используем фильтр <span class="code">content_types=['text']</span>.
+                   Поскольку нам нужно, чтобы бот зеркалил абсолютно все сообщения, то используем фильтр <span class="text-amber-600">content_types=['text']</span>.
                </p>
-               <div class="bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
+               <div class="code bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
                    <div class="py-2">@bot.message_handler(content_types=['text'])</div>
                    <div class="py-2">def mirror_func(message):</div>
                    <div class="py-2">...</div>
                </div>
 
                <p class="py-3">
-                   Теперь обращаемся к методу <span class="code">send_message()</span>, 1-м аргументом передаем чат, в который надо отправить сообщение, 2-м аргументом - то, что нужно отправить, в нашем случае текст самого сообщения.
+                   Теперь обращаемся к методу <span class="text-amber-600">send_message()</span>, 1-м аргументом передаем чат, в который надо отправить сообщение, 2-м аргументом - то, что нужно отправить, в нашем случае текст самого сообщения.
                </p>
-               <div class="bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
+               <div class="code bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
                    <div class="py-2">@bot.message_handler(content_types=['text'])</div>
                    <div class="py-2">def mirror_func(message):</div>
                    <div class="py-2 pl-5">bot.send_message(message.chat.id, message.text)</div>
                </div>
 
                <p class="py-3">В итоге у нас получилась такая программа:</p>
-               <div class="bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
+               <div class="code bg-blue-100 px-5 py-5 w-4/5 rounded-lg border-l-8 border-sky-600">
                    <div class="py-2">import telebot</div>
                    <div class="py-2">TOKEN = '5436079033:AAFs3CEDSD4fE9x-xJAalNKSMhvTiemzcts'</div>
                    <div class="py-2">bot = telebot.TeleBot(TOKEN)</div>
