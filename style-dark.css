@@ -4,10 +4,16 @@
     box-sizing: border-box;
 }
 
+.code {
+    color: black;
+}
+
 body {
+    background: #2a2727;
+    transition: 1s;
     font-family: 'Comfortaa', cursive;
     font-weight: lighter;
-    transition: 1s;
+    color: white;
 }
 
 h2 {
@@ -57,7 +63,6 @@ h2 {
         padding: 0 !important;
         margin: 0 !important;
         word-wrap: break-word;
-
     }
     header div h1 {
         font-size: 150% !important;
@@ -71,21 +76,16 @@ h2 {
         font-size: 1rem !important;
     }
     p {
-        font-size: 16px !important;
+        font-size: 100% !important;
 
     }
     ol, ul {
-        font-size: 18px !important;
+        font-size: 80% !important;
     }
     .code {
-        font-size: 18px;
         text-align: left !important;
         width: 100% !important;
 
-    }
-
-    h1, h2 {
-        font-size: 24px;
     }
 }
 
