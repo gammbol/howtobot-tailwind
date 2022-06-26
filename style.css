@@ -4,6 +4,33 @@
     box-sizing: border-box;
 }
 
+.desc {
+    font-size: 2rem;
+    font-weight: lighter !important;
+}
+
+a {
+    color: blue !important;
+}
+a:active {
+    color: red !important;
+}
+a:hover {
+    text-decoration: underline !important;
+}
+
+pre {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 19px !important;
+    word-break: break-word;
+}
+
+main {
+    margin: 0 auto !important;
+    display: block;
+}
+
 body {
     font-family: 'Comfortaa', cursive;
     font-weight: lighter;
@@ -41,6 +68,13 @@ h2 {
         padding: 0;
         font-size: 150% !important;
     }
+    code {
+        font-size: 14px !important;
+    }
+    pre {
+        text-align: left !important;
+        width: 100% !important;
+    }
 }
 
 @media (max-width: 550px) {
@@ -60,16 +94,16 @@ h2 {
 
     }
     header div h1 {
-        font-size: 150% !important;
+        font-size: 100% !important;
         text-align: center;
         margin-bottom: 15%;
-    }
-    header p {
         padding: 0 !important;
-        text-align: center;
-        bottom: 20% !important;
-        font-size: 1rem !important;
     }
+
+    .desc {
+        font-size: 80%;
+    }
+
     p {
         font-size: 16px !important;
 
@@ -77,11 +111,12 @@ h2 {
     ol, ul {
         font-size: 18px !important;
     }
-    .code {
-        font-size: 18px;
+    code {
+        font-size: 11px !important;
+    }
+    pre {
         text-align: left !important;
         width: 100% !important;
-
     }
 
     h1, h2 {
