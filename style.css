@@ -9,6 +9,11 @@
     font-weight: lighter !important;
 }
 
+.imgcode {
+    margin: 10px auto 20px !important;
+    display: block;
+}
+
 a {
     color: blue !important;
 }
@@ -38,7 +43,7 @@ body {
 }
 
 h2 {
-    font-weight: bold;
+    font-weight: bold !important;
 }
 
 #div-switch {
@@ -69,7 +74,7 @@ h2 {
         font-size: 150% !important;
     }
     code {
-        font-size: 14px !important;
+        font-size: 12px !important;
     }
     pre {
         text-align: left !important;
@@ -112,7 +117,8 @@ h2 {
         font-size: 18px !important;
     }
     code {
-        font-size: 11px !important;
+        font-size: 8px !important;
+        width: 90% !important;
     }
     pre {
         text-align: left !important;
@@ -121,6 +127,32 @@ h2 {
 
     h1, h2 {
         font-size: 24px;
+    }
+}
+@media (min-width: 2560px) {
+    header h1 {
+        font-size: 350% !important;
+    }
+
+    h2 {
+        font-size: 150% !important;
+        margin: 20px 0 !important;
+    }
+
+    main {
+        font-size: 120%;
+        padding-left: 1px;
+    }
+    body {
+        padding: 0;
+        font-size: 150% !important;
+    }
+    code {
+        font-size: 25px !important;
+    }
+    pre {
+        text-align: left !important;
+        width: 100% !important;
     }
 }
 
